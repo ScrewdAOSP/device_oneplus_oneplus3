@@ -31,12 +31,24 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <fcntl.h>
-#include <string>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
-#include "vendor_init.h"
+#include <android-base/properties.h>
+
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+#include "vendor_init.h"
+
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
 
 static int read_file2(const char *fname, char *data, int max_size)
 {
@@ -47,7 +59,6 @@ static int read_file2(const char *fname, char *data, int max_size)
 
     fd = open(fname, O_RDONLY);
     if (fd < 0) {
-        ERROR("failed to open '%s'\n", fname);
         return 0;
     }
 
@@ -108,38 +119,42 @@ void load_op3t(const char *model) {
 }
 
 void vendor_load_properties() {
-    std::string rf_version = property_get("ro.boot.rf_version");
+    int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
 
-    if (rf_version == "11" || rf_version == "31") {
+    switch (rf_version) {
+    case 11:
+    case 31:
         /* China / North America model */
         load_op3("ONEPLUS A3000");
         property_set("ro.telephony.default_network", "22");
         property_set("telephony.lteOnCdmaDevice", "1");
         property_set("persist.radio.force_on_dc", "true");
-    } else if (rf_version == "21") {
+        break;
+    case 21:
         /* Europe / Asia model */
         load_op3("ONEPLUS A3003");
         property_set("ro.telephony.default_network", "9");
-    } else if (rf_version == "12") {
+        break;
+    case 12:
         /* China model */
         load_op3t("ONEPLUS A3010");
         property_set("ro.telephony.default_network", "22");
         property_set("telephony.lteOnCdmaDevice", "1");
         property_set("persist.radio.force_on_dc", "true");
-    } else if (rf_version == "22") {
+        break;
+    case 22:
         /* Europe / Asia model */
         load_op3t("ONEPLUS A3003");
         property_set("ro.telephony.default_network", "9");
-    } else if (rf_version == "32") {
+        break;
+    case 32:
         /* North America model */
         load_op3t("ONEPLUS A3000");
         property_set("ro.telephony.default_network", "22");
         property_set("telephony.lteOnCdmaDevice", "1");
         property_set("persist.radio.force_on_dc", "true");
-    } else {
-        INFO("%s: unexcepted rf version!\n", __func__);
+        break;
     }
 
     init_alarm_boot_properties();
 }
-
