@@ -126,6 +126,9 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
+
 # D2TW
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
