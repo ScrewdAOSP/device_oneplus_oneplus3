@@ -89,10 +89,6 @@ on boot
     chmod 0775 /data/misc/sensors
     start sensors
 
-    # Touchscreen
-    chown system radio /proc/touchpanel/double_tap_enable
-    chmod 0660 /proc/touchpanel/double_tap_enable
-
     chown root system /proc/touchpanel/up_swipe_enable
     chmod 0660 /proc/touchpanel/up_swipe_enable
     chown root system /proc/touchpanel/down_swipe_enable

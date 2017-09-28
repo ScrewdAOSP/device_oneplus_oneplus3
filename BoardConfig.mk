@@ -129,9 +129,6 @@ BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
-# D2TW
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
-
 # CNE and DPM
 BOARD_USES_QCNE := true
 
