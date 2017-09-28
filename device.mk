@@ -184,8 +184,8 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    OneplusThreeDoze
+#PRODUCT_PACKAGES += \
+#    OneplusThreeDoze
 
 # Display calibration
 PRODUCT_PACKAGES += \
@@ -202,8 +202,8 @@ PRODUCT_PACKAGES += \
     fs_config_files
 
 # DU Updater
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.du.updater=oneplus3
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.du.updater=oneplus3
 
 # GPS
 PRODUCT_PACKAGES += \
