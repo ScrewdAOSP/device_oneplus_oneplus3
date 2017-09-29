@@ -166,8 +166,8 @@ TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/hidl/manifest.xml
+DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/hidl/compatibility_matrix.xml
 
 # Init
 TARGET_UNIFIED_DEVICE := true
