@@ -171,6 +171,10 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
+# DRM
+PRODUCT_PACKAGES += \
+   android.hardware.drm@1.0-impl
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -198,7 +202,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    fingerprintd
+    android.hardware.biometrics.fingerprint@2.1-service \
+    fingerprint.msm8996
 
 # For config.fs
 PRODUCT_PACKAGES += \
@@ -224,6 +229,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/etc/xtwifi.conf
 
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
@@ -242,8 +251,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
     $(LOCAL_PATH)/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.msm8996
 
 # Media
@@ -263,6 +277,7 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
     nfc_nci.msm8996 \
     NfcNci \
@@ -287,6 +302,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
     power.msm8996
 
 # QMI
@@ -324,6 +340,19 @@ PRODUCT_PACKAGES += \
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy
+
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
 
 # Wifi
 PRODUCT_PACKAGES += \
