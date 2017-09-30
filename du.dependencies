@@ -5,21 +5,6 @@
    "branch"     : "o8x-caf"
  },
  {
-   "repository" : "DirtyUnicorns/android_vendor_nxp-nfc_opensource_frameworks",
-   "target_path": "vendor/nxp-nfc/opensource/frameworks",
-   "branch"     : "o8x-caf"
- },
- {
-   "repository" : "DirtyUnicorns/android_vendor_nxp-nfc_opensource_libnfc-nci",
-   "target_path": "vendor/nxp-nfc/opensource/libnfc-nci",
-   "branch"     : "o8x-caf"
- },
- {
-   "repository" : "DirtyUnicorns/android_vendor_nxp-nfc_opensource_Nfc",
-   "target_path": "vendor/nxp-nfc/opensource/Nfc",
-   "branch"     : "o8x-caf"
- },
- {
    "repository" : "DirtyUnicorns/android_system_qcom",
    "target_path": "system/qcom",
    "branch"     : "o8x-caf"
