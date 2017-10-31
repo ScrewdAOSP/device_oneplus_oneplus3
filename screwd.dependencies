@@ -8,5 +8,10 @@
    "repository":  "ScrewdAOSP/vendor_oneplus",
    "target_path": "vendor/oneplus",
    "branch":      "o-caf"
+  },
+  {
+   "repository":  "ScrewdAOSP/device_oppo_common",
+   "target_path": "device/oppo/common",
+   "branch":      "o-caf"
   }
 ]

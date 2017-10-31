@@ -300,3 +300,6 @@ PRODUCT_COPY_FILES += \
 
 # MSM8996 Headers
 PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8996/kernel-headers
+
+# Inherit from oppo-common
+$(call inherit-product, device/oppo/common/common.mk)
