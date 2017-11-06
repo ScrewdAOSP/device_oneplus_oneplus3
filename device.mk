@@ -134,8 +134,8 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-#PRODUCT_PACKAGES += \
-#    OneplusThreeDoze
+PRODUCT_PACKAGES += \
+    OneplusThreeDoze
 
 # Display calibration
 PRODUCT_PACKAGES += \
